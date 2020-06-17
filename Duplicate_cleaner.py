@@ -1,6 +1,6 @@
 import hashlib
 from hashlib import md5
-from scipy import *
+from imageio import imread
 import matplotlib.pyplot as plt
 import time
 import numpy as np
@@ -26,15 +26,18 @@ for index, filename in enumerate(os.listdir('.')):
             hash_keys[filehash] = index
         else:
             duplicates.append((index, hash_keys[filehash]))
-
 # print(duplicates)
-# 405 and 4
+
 
 for file_indexes in duplicates[:30]:
-    plt.subplot(121), plt.imshow(imread(files_list[file_indexes[1]]))
-    plt.title(file_indexes[1]), plt.xticks([]), plt.yticks([])
+    try:
+        plt.subplot(121), plt.imshow(imread(files_list[file_indexes[1]]))
+        plt.title(file_indexes[1]), plt.xticks([]), plt.yticks([])
+        plt.subplot(122), plt.imshow(imread(files_list[file_indexes[0]]))
+        plt.title(str(file_indexes[0]) + ' duplicate'), plt.xticks([]), plt.yticks([])
+        plt.show()
+    except OSError as e:
+        continue
 
-    plt.subplot(122), plt.imshow(imread(files_list[file_indexes[0]]))
-    plt.title(str(file_indexes[0]) + ' duplicate', plt.xticks([]), plt.yticks([]))
-    plt.show()
-
+for index in duplicates:
+    os.remove(files_list[index[0]])
