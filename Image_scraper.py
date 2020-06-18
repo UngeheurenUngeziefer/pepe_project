@@ -58,7 +58,7 @@ class ImageScraper:
 
 # Obj = class           url adress             tag            regex requests
 Obj = ImageScraper('https://rare-pepe.com/', 'img', r'(data-orig-file="https?://\S+)',
-                    r'(https?://\S+)', '.\downloads2', 'pepe_')
+                    r'(https?://\S+)', '.\downloads', 'pepe_')
 #                                   folder to dwnld     name of files
 
 if __name__ == '__main__':
