@@ -2,7 +2,7 @@ import telepot
 import glob
 import os
 
-token = '1279456273:AAECOMcJPNP7x5G5sD4zIzQukDcy34sG5KU'
+token = ' '
 proxies = {'https': '169.51.80.228:3128', 'http': '159.203.82.173:3128'}
 telepot.api.set_proxy('https://169.51.80.228:3128')
 PosterBot = telepot.Bot(token)
