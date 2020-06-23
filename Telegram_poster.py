@@ -22,7 +22,9 @@ PosterBot = telepot.Bot(token)
 chat_id = '-1001200942722'
 
 # creating list of addresses to all imgs
-def img_path():
+def img_path(message):
+    content_type, chat_type, chat_id_console = telepot.glance(message)
+    print(content_type, chat_type, chat_id_console)
     path = 'C:/Users/sewer/MyPython/Pepe_project/downloads'
     img_list = []
     addresses_list = []
@@ -40,4 +42,10 @@ def img_path():
             print('Too Many Requests')
             continue
 
-img_path()
+MessageLoop(PosterBot, img_path).run_as_thread()
+print('Listening ...')
+
+while 1:
+    sleep(10)
+
+            
