@@ -5,6 +5,9 @@
 
 #### The main goal of this project is to create program to scrap images from website and post them to telegram channel with bot.
 
+### !!! Telegram_Poster.py works only from local disk !!!
+The reason of this is limit for access from server to local disk.
+
 ### Table of files
 File | What's for
 ------------ | -------------
