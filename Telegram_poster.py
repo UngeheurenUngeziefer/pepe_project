@@ -35,12 +35,9 @@ def img_path(message):
         addresses_list.append(path + '/' + img)         # addresses list contain ['address_1', 'address_N' ...]
     for path in addresses_list:
         # return path                                      # return addresses like: './downloads/pepe_10.png'
-        try:
-            PosterBot.sendPhoto(chat_id, photo=open(path, 'rb'))
-            print('Posting {}'.format(path))
-        except telepot.exception.TooManyRequestsError:
-            print('Too Many Requests')
-            continue
+        PosterBot.sendPhoto(chat_id, photo=open(path, 'rb'))
+        print('Posting {}'.format(path))
+        sleep(3)  # sleep for 3 sec - telegram limit 20 per minute
 
 MessageLoop(PosterBot, img_path).run_as_thread()
 print('Listening ...')
